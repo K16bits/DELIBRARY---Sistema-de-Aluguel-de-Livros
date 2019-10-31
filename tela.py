@@ -1,4 +1,4 @@
-from tkinter import Tk, StringVar, Label, Entry, Listbox, Scrollbar, Button, Place
+from tkinter import Tk, StringVar, Label, Entry, Listbox, Scrollbar, Button
 
 class Tela_inicial():
     '''Classe que modela a interface grafica da tela inicial'''
@@ -11,16 +11,15 @@ class Tela_inicial():
         
         self.btn_administrador = Button(self.janela_inicial, width = 20, text="Administrador")
         self.btn_bibliotecario = Button(self.janela_inicial, width = 20, text="Bibliotecario")
-        
         self.btn_cliente = Button(self.janela_inicial, width = 20, text="Cliente")        
         self.btn_fechar = Button(self.janela_inicial, width = 20, text="Sair")
     def config_layout(self):
         '''Metodo para configurar os widgets da janela'''
-        self.lb_janela_inicial.place(x=0,y=0)
-        self.btn_administrador.place(x=0,y=30)
-        self.btn_bibliotecario.place(x=0,y=60)
-        self.btn_cliente.place(x=0,y=90)
-        self.btn_fechar.place(x=0,y=120)
+        self.lb_janela_inicial.grid(row=0,column=0)
+        self.btn_administrador.grid(row=1,column=0)
+        self.btn_bibliotecario.grid(row=2,column=0)
+        self.btn_cliente.grid(row=3,column=0)
+        self.btn_fechar.grid(row=4,column=0)
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
@@ -46,12 +45,12 @@ class Tela_administrador_login():
         self.lb_janela_administrador_senha = Label(self.janela_administrador_login, text = "SENHA: ")
     def config_layout(self):
         '''Metodo para configurar os widgets da janela'''
-        self.ent_login.place(x=50,y=1)
-        self.ent_senha.place(x=50,y=30)
-        self.lb_janela_administrador_login.place(x=0,y=0)
-        self.lb_janela_administrador_senha.place(x=0,y=30)
-        self.btn_login.place(x=0,y=60)
-        self.btn_voltar_tela.place(x=0,y=90)
+        self.lb_janela_administrador_login.grid(row=0,column=0)
+        self.lb_janela_administrador_senha.grid(row=1,column=0)
+        self.ent_login.grid(row=0,column=1)
+        self.ent_senha.grid(row=1,column=1)
+        self.btn_login.grid(row=2,column=1)
+        self.btn_voltar_tela.grid(row=3,column=1)
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
@@ -77,12 +76,12 @@ class Tela_bibliotecario_login():
         self.lb_janela_bibliotecario_senha = Label(self.janela_bibliotecario_login, text = "SENHA: ")
     def config_layout(self):
         '''Metodo para configurar os widgets da janela'''
-        self.ent_login.place(x=50,y=1)
-        self.ent_senha.place(x=50,y=30)
-        self.lb_janela_bibliotecario_login.place(x=0,y=0)
-        self.lb_janela_bibliotecario_senha.place(x=0,y=30)
-        self.btn_voltar_tela.place(x=0,y=90)
-        self.btn_login.place(x=0,y=60)
+        self.lb_janela_bibliotecario_login.grid(row=0,column=0)
+        self.lb_janela_bibliotecario_senha.grid(row=1,column=0)
+        self.ent_login.grid(row=0,column=1)
+        self.ent_senha.grid(row=1,column=1)
+        self.btn_login.grid(row=2,column=1)
+        self.btn_voltar_tela.grid(row=3,column=1)
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
@@ -108,12 +107,12 @@ class Tela_cliente_login():
         self.lb_janela_cliente_senha = Label(self.janela_cliente_login, text = "SENHA: ")
     def config_layout(self):
         '''Metodo para configurar os widgets da janela'''
-        self.ent_login.place(x=50,y=1)
-        self.ent_senha.place(x=50,y=30)
-        self.lb_janela_cliente_login.place(x=0,y=0)
-        self.lb_janela_cliente_senha.place(x=0,y=30)
-        self.btn_login.place(x=0,y=60)
-        self.btn_voltar_tela.place(x=0,y=90)
+        self.lb_janela_cliente_login.grid(row=0,column=0)
+        self.lb_janela_cliente_senha.grid(row=1,column=0)
+        self.ent_login.grid(row=0,column=1)
+        self.ent_senha.grid(row=1,column=1)
+        self.btn_login.grid(row=2,column=1)
+        self.btn_voltar_tela.grid(row=3,column=1)
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
@@ -145,8 +144,19 @@ class Tela_administrador():
         self.janela_administrador = Tk()
         self.janela_administrador.geometry("600x400+100+100")
         self.janela_administrador.wm_title("administrador - DELIBRARY")
+
+    #     self.listClientes = Listbox(self.janela_administrador, width=45)
+    #     self.scrollClientes = Scrollbar(self.janela_administrador)
+    
+    # def configure_layout(self):
+    #     self.listClientes.grid(row=10, column=110, rowspan=50)#rowspan para fazer com que o objeto ocupe mais de uma linha.
+    #     self.scrollClientes.grid(row=10, column=50, rowspan=50)
+    #     self.listClientes.configure(yscrollcommand=self.scrollClientes.set)
+    #     self.scrollClientes.configure(command=self.listClientes.yview)
+
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
+        # self.configure_layout()
         self.janela_administrador.mainloop()
 
 
