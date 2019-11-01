@@ -8,8 +8,11 @@ class Controle_tela_administrador():
     '''Classe para controlar a tela do administrador depois de feito o login'''
     def __init__(self):
         self.tela_administrador = Tela_administrador()
+    def voltar_tela(self):
+        self.tela_administrador.janela_administrador.destroy()
     def start(self):
         '''Inicia a tela do administrador e os eventos dos botoes'''
+        self.tela_administrador.btn_fechar.configure(command=self.voltar_tela)
         self.tela_administrador.iniciar()
 
 class Controle_tela_bibliotecario():
