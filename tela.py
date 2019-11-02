@@ -20,8 +20,10 @@ class Tela():
             else:
                 child.grid_configure(padx=x_pad, pady=y_pad, sticky='N')
     def iniciar(self):
+        '''Metodo para desenhar a janela e processar eventos'''
         self.config_sizes()
         self.janela.mainloop()
+
 class Tela_inicial(Tela):
     '''Classe que modela a interface grafica da tela inicial'''
     def __init__(self):
@@ -40,17 +42,14 @@ class Tela_inicial(Tela):
         self.btn_bibliotecario.grid(row=2,column=0)
         self.btn_cliente.grid(row=3,column=0)
         self.btn_fechar.grid(row=4,column=0)
-    # def configure_sizes(self):
     def config_sizes(self):
         '''definindo o tamanho dos elementos'''
         return super().config_sizes()        
-    # def iniciar(self):
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
         return super().iniciar()
     
-        
 class Tela_administrador_login(Tela):
     '''Classe que modela a interface grafica da tela de login do administrador'''
     def __init__(self):
@@ -83,7 +82,6 @@ class Tela_administrador_login(Tela):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
         return super().iniciar()
-
 
 class Tela_bibliotecario_login(Tela):
     '''Classe que modela a interface grafica da tela de login do bibliotecario'''
@@ -156,8 +154,11 @@ class Tela_cliente(Tela):
     def __init__(self):
         super().__init__()
         self.janela.wm_title("cliente - DELIBRARY")
+    def config_layout(self):
+        pass
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
+        # self.config_layout()
         return super().iniciar()
 
 class Tela_bibliotecario(Tela):
@@ -165,8 +166,11 @@ class Tela_bibliotecario(Tela):
     def __init__(self):
         super().__init__()
         self.janela.wm_title("bibliotecario - DELIBRARY")
+    def config_layout(self):
+        pass
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
+        # self.config_layout()
         return super().iniciar()
 
 class Tela_administrador(Tela):
@@ -206,7 +210,7 @@ class Tela_administrador(Tela):
     def config_sizes(self):
         '''definindo o tamanho dos elementos'''
         return super().config_sizes()   
-    def configure_layout(self):
+    def config_layout(self):
         '''Metodo para configurar os widgets da janela'''
         self.lbl_nome.grid(row = 0, column = 1)
         self.lbl_sobrenome.grid(row = 1, column = 1)
