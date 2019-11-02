@@ -1,4 +1,4 @@
-from tela import Tela_inicial, Tela_administrador_login, Tela_bibliotecario_login, Tela_cliente_login, Tela_cliente,Tela_administrador,Tela_bibliotecario
+from tela import Tela,Tela_inicial, Tela_administrador_login, Tela_bibliotecario_login, Tela_cliente_login, Tela_cliente,Tela_administrador,Tela_bibliotecario
 from usuario import Usuario
 from administrador import Administrador
 from cliente import Cliente
@@ -9,7 +9,7 @@ class Controle_tela_administrador():
     def __init__(self):
         self.tela_administrador = Tela_administrador()
     def voltar_tela(self):
-        self.tela_administrador.janela_administrador.destroy()
+        self.tela_administrador.janela.destroy()
     def start(self):
         '''Inicia a tela do administrador e os eventos dos botoes'''
         self.tela_administrador.btn_fechar.configure(command=self.voltar_tela)
@@ -36,9 +36,9 @@ class Controle_tela_administrador_login():
     def __init__(self):
         self.tela_administrador_login = Tela_administrador_login()
     def voltar_tela(self):
-        self.tela_administrador_login.janela_administrador_login.destroy()
+        self.tela_administrador_login.janela.destroy()
     def fazer_login(self):
-        self.tela_administrador_login.janela_administrador_login.destroy()
+        self.tela_administrador_login.janela.destroy()
         Controle_tela_administrador().start()
     def start(self):
         '''Inicia a tela de login do administrador e os eventos dos botoes'''
@@ -51,9 +51,9 @@ class Controle_tela_bibliotecario_login():
     def __init__(self):
         self.tela_bibliotecario_login = Tela_bibliotecario_login()
     def voltar_tela(self):
-        self.tela_bibliotecario_login.janela_bibliotecario_login.destroy()
+        self.tela_bibliotecario_login.janela.destroy()
     def fazer_login(self):
-        self.tela_bibliotecario_login.janela_bibliotecario_login.destroy()
+        self.tela_bibliotecario_login.janela.destroy()
         Controle_tela_bibliotecario().start()
     def start(self):
         '''Inicia a tela de login do bibliotecario e os eventos dos botoes'''
@@ -66,9 +66,9 @@ class Controle_tela_cliente_login():
     def __init__(self):
         self.tela_cliente_login = Tela_cliente_login()
     def voltar_tela(self):
-        self.tela_cliente_login.janela_cliente_login.destroy()
+        self.tela_cliente_login.janela.destroy()
     def fazer_login(self):
-        self.tela_cliente_login.janela_cliente_login.destroy()
+        self.tela_cliente_login.janela.destroy()
         Controle_tela_cliente().start()
     def start(self):
         '''Inicia a tela de login do cliente e os eventos dos botoes'''
@@ -81,7 +81,7 @@ class Controle_tela_inicial():
     def __init__(self):
         self.tela = Tela_inicial()
     def finalizar_programa(self):
-        self.tela.janela_inicial.destroy()
+        self.tela.janela.destroy()
     def mudar_tela_administrador(self):
         Controle_tela_administrador_login().start()
     def mudar_tela_cliente(self):
