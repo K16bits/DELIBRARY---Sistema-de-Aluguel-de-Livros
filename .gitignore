@@ -1,0 +1,6 @@
+#ignore chache  do python
+__pycahe__/
+*.pyc
+#ignore .vscode
+.vscode/
+*.json
