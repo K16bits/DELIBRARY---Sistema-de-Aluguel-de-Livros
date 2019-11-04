@@ -19,8 +19,11 @@ class Controle_tela_bibliotecario():
     '''Classe para controlar a tela do bibliotecario depois de feito o login'''
     def __init__(self):
         self.tela_bibliotecario = Tela_bibliotecario()
+    def fechar_janela(self):
+        self.tela_bibliotecario.janela.destroy()
     def start(self):
         '''Inicia a tela do bibliotecario e os eventos dos botoes'''
+        self.tela_bibliotecario.btn_fechar.configure(command = self.fechar_janela)
         self.tela_bibliotecario.iniciar()
 
 class Controle_tela_cliente():
