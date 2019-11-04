@@ -1,4 +1,4 @@
-from tela import Tela,Tela_inicial, Tela_administrador_login, Tela_bibliotecario_login, Tela_cliente_login, Tela_cliente,Tela_administrador,Tela_bibliotecario
+from tela import Tela,Tela_inicial, Tela_administrador_login, Tela_bibliotecario_login, Tela_cliente_login, Tela_cliente,Tela_administrador,Tela_bibliotecario, Tela_cliente_registrar
 from usuario import Usuario
 from administrador import Administrador
 from cliente import Cliente
@@ -61,6 +61,16 @@ class Controle_tela_bibliotecario_login():
         self.tela_bibliotecario_login.btn_login.configure(command = self.fazer_login)
         self.tela_bibliotecario_login.iniciar()
 
+class Controle_tela_cliente_registrar():
+    '''Classe para controlar a tela do cliente para fazer o cadastro'''
+    def __init__(self):
+        self.tela_cliente_registrar = Tela_cliente_registrar()
+    def confirmar_registro(self):
+        self.tela_cliente_registrar.janela.destroy()
+    def start(self):
+        self.tela_cliente_registrar.bnt_registrar_cliente.configure(command = self.confirmar_registro)
+        self.tela_cliente_registrar.iniciar()
+
 class Controle_tela_cliente_login():
     '''Classe para controlar a tela de login do cliente'''
     def __init__(self):
@@ -70,10 +80,13 @@ class Controle_tela_cliente_login():
     def fazer_login(self):
         self.tela_cliente_login.janela.destroy()
         Controle_tela_cliente().start()
+    def fazer_cadastro(self):
+        Controle_tela_cliente_registrar().start()
     def start(self):
         '''Inicia a tela de login do cliente e os eventos dos botoes'''
         self.tela_cliente_login.btn_voltar_tela.configure(command = self.voltar_tela)
         self.tela_cliente_login.btn_login.configure(command = self.fazer_login)
+        self.tela_cliente_login.btn_cadastro.configure(command = self.fazer_cadastro)
         self.tela_cliente_login.iniciar()
 
 class Controle_tela_inicial():
