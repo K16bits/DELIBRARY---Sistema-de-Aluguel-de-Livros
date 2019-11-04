@@ -41,10 +41,7 @@ class Tela_inicial(Tela):
         self.btn_administrador.grid(row=1,column=0)
         self.btn_bibliotecario.grid(row=2,column=0)
         self.btn_cliente.grid(row=3,column=0)
-        self.btn_fechar.grid(row=4,column=0)
-    def config_sizes(self):
-        '''definindo o tamanho dos elementos'''
-        return super().config_sizes()        
+        self.btn_fechar.grid(row=4,column=0)      
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
@@ -74,10 +71,7 @@ class Tela_administrador_login(Tela):
         self.ent_login.grid(row=0,column=1)
         self.ent_senha.grid(row=1,column=1)
         self.btn_login.grid(row=2,column=1)
-        self.btn_voltar_tela.grid(row=3,column=1)
-    def config_sizes(self):
-        '''definindo o tamanho dos elementos'''
-        return super().config_sizes()   
+        self.btn_voltar_tela.grid(row=3,column=1)  
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
@@ -107,10 +101,7 @@ class Tela_bibliotecario_login(Tela):
         self.ent_login.grid(row=0,column=1)
         self.ent_senha.grid(row=1,column=1)
         self.btn_login.grid(row=2,column=1)
-        self.btn_voltar_tela.grid(row=3,column=1)
-    def config_sizes(self):
-        '''definindo o tamanho dos elementos'''
-        return super().config_sizes()   
+        self.btn_voltar_tela.grid(row=3,column=1)   
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
@@ -140,10 +131,7 @@ class Tela_cliente_login(Tela):
         self.ent_login.grid(row=0,column=1)
         self.ent_senha.grid(row=1,column=1)
         self.btn_login.grid(row=2,column=1)
-        self.btn_voltar_tela.grid(row=3,column=1)
-    def config_sizes(self):
-        '''definindo o tamanho dos elementos'''
-        return super().config_sizes()   
+        self.btn_voltar_tela.grid(row=3,column=1)  
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
@@ -225,9 +213,6 @@ class Tela_bibliotecario(Tela):
 
         self.list_livro = Listbox(self.janela, width=83)
         self.scroll_livro = Scrollbar(self.janela)
-    def config_sizes(self):
-        '''definindo o tamanho dos elementos'''
-        return super().config_sizes()  
     def config_layout(self):
         '''Metodo para configurar os widgets da janela'''
         self.lbl_janela_cliente.grid(row = 0, column = 0)
@@ -270,7 +255,6 @@ class Tela_bibliotecario(Tela):
         self.scroll_livro.grid(row=10, column=4, rowspan=7)
         self.list_livro.configure(yscrollcommand=self.scroll_livro.set)
         self.scroll_livro.configure(command=self.list_livro.yview)
-
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
@@ -311,9 +295,6 @@ class Tela_administrador(Tela):
 
         self.list_bibliotecario = Listbox(self.janela, width=77)
         self.scroll_bibliotecario = Scrollbar(self.janela)
-    def config_sizes(self):
-        '''definindo o tamanho dos elementos'''
-        return super().config_sizes()   
     def config_layout(self):
         '''Metodo para configurar os widgets da janela'''
         self.lbl_janela_bibliotecario.grid(row = 0, column = 0)
