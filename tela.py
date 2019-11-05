@@ -241,8 +241,8 @@ class Tela_bibliotecario(Tela):
         self.btn_atualizar = Button(self.janela, width = 15, text="Atualizar")
         self.btn_fechar = Button(self.janela, width = 15, text="Sair")
 
-        self.list_cliente = Listbox(self.janela, width=72)
-        self.scroll_cliente = Scrollbar(self.janela)
+        self.list = Listbox(self.janela, width=72)
+        self.scroll = Scrollbar(self.janela)
 
         self.lbl_janela_livro = Label(self.janela, text="CADASTRO DE LIVRO")
         self.lbl_nome_livro = Label(self.janela,text="Nome")
@@ -262,8 +262,6 @@ class Tela_bibliotecario(Tela):
         self.btn_cadastro_livro = Button(self.janela, width = 15, text="Cadastrar Livro")
         self.btn_retirar_livro = Button(self.janela, width = 15, text="Retirar Livro")
 
-        self.list_livro = Listbox(self.janela, width=72)
-        self.scroll_livro = Scrollbar(self.janela)
     def config_layout(self):
         '''Metodo para configurar os widgets da janela'''
         self.lbl_janela_cliente.grid(row = 0, column = 0)
@@ -283,10 +281,10 @@ class Tela_bibliotecario(Tela):
         self.btn_retirar_acesso_cliente.grid(row = 7, column = 1)
         self.btn_ver_todos_cliente.grid(row = 8, column = 0)
         self.btn_atualizar.grid(row = 8, column = 1)
-        self.list_cliente.grid(row=1, column=3,rowspan=7)
-        self.scroll_cliente.grid(row=1, column=4, rowspan=7)
-        self.list_cliente.configure(yscrollcommand=self.scroll_cliente.set)
-        self.scroll_cliente.configure(command=self.list_cliente.yview)
+        self.list.grid(row=1, column=3,rowspan=15)
+        self.scroll.grid(row=1, column=4, rowspan=15)
+        self.list.configure(yscrollcommand=self.scroll.set)
+        self.scroll.configure(command=self.list.yview)
 
         self.lbl_janela_livro.grid(row = 9, column = 0)
         self.lbl_nome_livro.grid(row = 10, column = 0)
@@ -304,10 +302,6 @@ class Tela_bibliotecario(Tela):
         self.btn_cadastro_livro.grid(row = 16, column = 0)
         self.btn_retirar_livro.grid(row = 16, column = 1)
         self.btn_fechar.grid(row = 17, column = 0)
-        self.list_livro.grid(row=10, column=3,rowspan=7)
-        self.scroll_livro.grid(row=10, column=4, rowspan=7)
-        self.list_livro.configure(yscrollcommand=self.scroll_livro.set)
-        self.scroll_livro.configure(command=self.list_livro.yview)
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
