@@ -45,8 +45,11 @@ class Controle_tela_cliente():
     '''Classe para controlar a tela do cliente depois de feito o login'''
     def __init__(self):
         self.tela_cliente = Tela_cliente()
+    def sair(self):
+        self.tela_cliente.janela.destroy()
     def start(self):
         '''Inicia a tela do cliente e os eventos dos botoes'''
+        self.tela_cliente.btn_sair.configure(command = self.sair)
         self.tela_cliente.iniciar()
 
 class Controle_tela_administrador_login():
