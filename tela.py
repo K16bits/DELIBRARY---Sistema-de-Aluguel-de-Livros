@@ -144,6 +144,7 @@ class Tela_cliente_registrar(Tela):
     def __init__(self):
         self.janela = Tk()
         self.janela.wm_title("Cadastro de cliente - DELIBRARY")
+        self.janela.geometry("800x200+50+50")
 
         self.txt_nome_cliente = StringVar()
         self.txt_sobrenome_cliente = StringVar()
@@ -167,6 +168,7 @@ class Tela_cliente_registrar(Tela):
         self.ent_email_cliente = Entry(self.janela, textvariable=self.txt_email_cliente)
 
         self.bnt_registrar_cliente = Button(self.janela, width = 15, text="Comfirmar")
+        self.btn_sair = Button(self.janela, width = 15, text="Sair")
     def config_layout(self):
         '''Metodo para configurar os widgets da janela'''
         self.lbl_nome_cliente.grid(row = 1, column = 0)
@@ -181,7 +183,8 @@ class Tela_cliente_registrar(Tela):
         self.ent_login_cliente.grid(row = 4, column = 1)
         self.ent_senha_cliente.grid(row = 5, column = 1)
         self.ent_email_cliente.grid(row = 6, column = 1)
-        self.bnt_registrar_cliente.grid(row = 7, column = 0) 
+        self.bnt_registrar_cliente.grid(row = 7, column = 0)
+        self.btn_sair.grid(row = 7, column = 1)
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
@@ -197,7 +200,40 @@ class Tela_cliente(Tela):
         pass
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
-        # self.config_layout()
+        # self.config_layout()  retirar quando configura metodo acima
+        return super().iniciar()
+
+class Tela_emprestimo_devolucao(Tela):
+    '''Classe que modela a interface grafica da tela para realizar emprestimo e devolucao do livro'''
+    def __init__(self):
+        self.janela = Tk()
+        self.janela.wm_title("emprestimo/devolucao - DELIBRARY")
+        self.janela.geometry("800x200+50+50")
+
+        self.txt_id_livro = StringVar()
+        self.txt_cpf_cliente = StringVar()
+        
+        self.lbl_id_livro = Label(self.janela, text="Id do livro")
+        self.lbl_cpf_cliente = Label(self.janela, text="CPF do cliente")
+
+        self.ent_id_livro = Entry(self.janela,textvariable=self.txt_id_livro)
+        self.ent_cpf_cliente = Entry(self.janela,textvariable=self.txt_cpf_cliente)
+
+        self.btn_emprestimo = Button(self.janela, width = 15, text="Emprestimo")
+        self.btn_devolucao = Button(self.janela, width = 15, text="Devolução")
+        self.btn_sair = Button(self.janela, width = 15, text="Sair")
+    def config_layout(self):
+        '''Metodo para configurar os widgets da janela'''
+        self.lbl_id_livro.grid(row = 0, column = 0)
+        self.lbl_cpf_cliente.grid(row = 1, column = 0)
+        self.ent_id_livro.grid(row = 0, column = 1)
+        self.ent_cpf_cliente.grid(row = 1, column = 1)
+        self.btn_emprestimo.grid(row = 2, column = 0)
+        self.btn_devolucao.grid(row = 2, column = 1)
+        self.btn_sair.grid(row = 3, column = 0)
+    def iniciar(self):
+        '''Metodo para desenhar a janela e processar eventos'''
+        self.config_layout()
         return super().iniciar()
 
 class Tela_bibliotecario(Tela):
@@ -213,6 +249,7 @@ class Tela_bibliotecario(Tela):
         self.txt_senha_cliente = StringVar()
         self.txt_email_cliente = StringVar()
 
+        self.txt_id_livro = StringVar()
         self.txt_nome_livro = StringVar()
         self.txt_genero_livro = StringVar()
         self.txt_autor_livro = StringVar()
@@ -239,12 +276,14 @@ class Tela_bibliotecario(Tela):
         self.btn_retirar_acesso_cliente = Button(self.janela, width = 15, text="Retirar Acesso")
         self.btn_ver_todos_cliente = Button(self.janela, width = 15, text="Ver Todos")
         self.btn_atualizar = Button(self.janela, width = 15, text="Atualizar")
+        self.btn_realizar_emprestimo_devolucao = Button(self.janela, width = 15, text="Emprestimo/Devolucao")
         self.btn_fechar = Button(self.janela, width = 15, text="Sair")
 
         self.list = Listbox(self.janela, width=72)
         self.scroll = Scrollbar(self.janela)
 
         self.lbl_janela_livro = Label(self.janela, text="CADASTRO DE LIVRO")
+        self.lbl_id_livro = Label(self.janela, text = "ID")
         self.lbl_nome_livro = Label(self.janela,text="Nome")
         self.lbl_genero_livro = Label(self.janela,text="Genero")
         self.lbl_autor_livro = Label(self.janela,text="Autor")
@@ -252,6 +291,7 @@ class Tela_bibliotecario(Tela):
         self.lbl_editora_livro = Label(self.janela,text="Editora")
         self.lbl_edicao_livro = Label(self.janela,text="Edicao")
 
+        self.ent_id_livro = Entry(self.janela,textvariable=self.txt_id_livro)
         self.ent_nome_livro = Entry(self.janela, textvariable=self.txt_nome_livro)
         self.ent_genero_livro = Entry(self.janela, textvariable=self.txt_genero_livro)
         self.ent_autor_livro = Entry(self.janela, textvariable=self.txt_autor_livro)
@@ -281,27 +321,30 @@ class Tela_bibliotecario(Tela):
         self.btn_retirar_acesso_cliente.grid(row = 7, column = 1)
         self.btn_ver_todos_cliente.grid(row = 8, column = 0)
         self.btn_atualizar.grid(row = 8, column = 1)
-        self.list.grid(row=1, column=3,rowspan=15)
-        self.scroll.grid(row=1, column=4, rowspan=15)
+        self.list.grid(row=1, column=3,rowspan=16)
+        self.scroll.grid(row=1, column=4, rowspan=16)
         self.list.configure(yscrollcommand=self.scroll.set)
         self.scroll.configure(command=self.list.yview)
 
         self.lbl_janela_livro.grid(row = 9, column = 0)
-        self.lbl_nome_livro.grid(row = 10, column = 0)
-        self.lbl_genero_livro.grid(row = 11, column = 0)
-        self.lbl_autor_livro.grid(row = 12, column = 0)
-        self.lbl_area_livro.grid(row = 13, column = 0)
-        self.lbl_editora_livro.grid(row = 14, column = 0)
-        self.lbl_edicao_livro.grid(row = 15, column = 0)
-        self.ent_nome_livro.grid(row = 10, column = 1)
-        self.ent_genero_livro.grid(row = 11, column = 1)
-        self.ent_autor_livro.grid(row = 12, column = 1)
-        self.ent_area_livro.grid(row = 13, column = 1)
-        self.ent_editora_livro.grid(row = 14, column = 1)
-        self.ent_edicao_livro.grid(row = 15, column = 1)
-        self.btn_cadastro_livro.grid(row = 16, column = 0)
-        self.btn_retirar_livro.grid(row = 16, column = 1)
-        self.btn_fechar.grid(row = 17, column = 0)
+        self.lbl_id_livro.grid(row = 10, column =0)
+        self.lbl_nome_livro.grid(row = 11, column = 0)
+        self.lbl_genero_livro.grid(row = 12, column = 0)
+        self.lbl_autor_livro.grid(row = 13, column = 0)
+        self.lbl_area_livro.grid(row = 14, column = 0)
+        self.lbl_editora_livro.grid(row = 15, column = 0)
+        self.lbl_edicao_livro.grid(row = 16, column = 0)
+        self.ent_id_livro.grid(row = 10, column = 1)
+        self.ent_nome_livro.grid(row = 11, column = 1)
+        self.ent_genero_livro.grid(row = 12, column = 1)
+        self.ent_autor_livro.grid(row = 13, column = 1)
+        self.ent_area_livro.grid(row = 14, column = 1)
+        self.ent_editora_livro.grid(row = 15, column = 1)
+        self.ent_edicao_livro.grid(row = 16, column = 1)
+        self.btn_cadastro_livro.grid(row = 17, column = 0)
+        self.btn_retirar_livro.grid(row = 17, column = 1)
+        self.btn_realizar_emprestimo_devolucao.grid(row = 18, column = 0)
+        self.btn_fechar.grid(row = 19, column = 0)
     def iniciar(self):
         '''Metodo para desenhar a janela e processar eventos'''
         self.config_layout()
