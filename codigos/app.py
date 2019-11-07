@@ -145,7 +145,7 @@ class Controle_tela_cliente_registrar():
     def __init__(self):
         self.tela_cliente_registrar = Tela_cliente_registrar()
     def confirmar_registro(self):
-        # implementar futuramente botao de efetuar login
+        # implementar futuramente botao de criar cadastro do cliente
         pass
     def sair(self):
         self.tela_cliente_registrar.janela.destroy()
