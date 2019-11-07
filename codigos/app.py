@@ -10,9 +10,21 @@ class Controle_tela_administrador():
         self.tela_administrador = Tela_administrador()
     def voltar_tela(self):
         self.tela_administrador.janela.destroy()
+    def criar_acesso_bibliotecario(self):
+        # implementar futuramente botao de criar acesso bibliotecario
+        pass
+    def retirar_acesso_bibliotecario(self):
+        # implementar futuramente botao de retirar acesso bibliotecario
+        pass
+    def ver_todos_bibliotecario(self):
+        # implementar futuramente botao de ver todos os bibliotecario
+        pass
     def start(self):
         '''Inicia a tela do administrador e os eventos dos botoes'''
         self.tela_administrador.btn_fechar.configure(command=self.voltar_tela)
+        self.tela_administrador.btn_criar_acesso_bibliotecario.configure(command=self.criar_acesso_bibliotecario)
+        self.tela_administrador.btn_retirar_acesso_bibliotecario.configure(command=self.retirar_acesso_bibliotecario)
+        self.tela_administrador.btn_ver_todos_bibliotecario.configure(command=self.ver_todos_bibliotecario)
         self.tela_administrador.iniciar()
 
 class Controle_tela_emprestimo_devolucao():
@@ -21,9 +33,17 @@ class Controle_tela_emprestimo_devolucao():
         self.tela_emprestimo_devolucao = Tela_emprestimo_devolucao()
     def sair(self):
         self.tela_emprestimo_devolucao.janela.destroy()
+    def emprestimo(self):
+        # implementar futuramente botao de emprestar livro
+        pass
+    def devolucao(self):
+        # implementar futuramente botao de devolvar livro
+        pass
     def start(self):
         '''Inicia a tela e os eventos dos botoes'''
         self.tela_emprestimo_devolucao.btn_sair.configure(command=self.sair)
+        self.tela_emprestimo_devolucao.btn_emprestimo.configure(command=self.emprestimo)
+        self.tela_emprestimo_devolucao.btn_devolucao.configure(command=self.devolucao)
         self.tela_emprestimo_devolucao.iniciar()
 
 
@@ -35,10 +55,34 @@ class Controle_tela_bibliotecario():
         self.tela_bibliotecario.janela.destroy()
     def emprestimo_devolucao(self):
         Controle_tela_emprestimo_devolucao().start()
+    def criar_acesso_cliente(self):
+        # implementar futuramente botao de criar acesso do cliente
+        pass
+    def retirar_acesso_cliente(self):
+        # implementar futuramente botao de retirar acesso do cliente
+        pass
+    def ver_todos_cliente(self):
+        # implementar futuramente botao de ver todos os clientes
+        pass
+    def atualizar(self):
+        # implementar futuramente botao de atualizar dados do clientes
+        pass
+    def cadastro_livro(self):
+        # implementar futuramente botao cadastrar livro
+        pass
+    def retirar_livro(self):
+        # implementar futuramente botao de retirar livro
+        pass
     def start(self):
         '''Inicia a tela do bibliotecario e os eventos dos botoes'''
         self.tela_bibliotecario.btn_fechar.configure(command = self.fechar_janela)
         self.tela_bibliotecario.btn_realizar_emprestimo_devolucao.configure(command = self.emprestimo_devolucao)
+        self.tela_bibliotecario.btn_criar_acesso_cliente.configure(command = self.criar_acesso_cliente)
+        self.tela_bibliotecario.btn_retirar_acesso_cliente.configure(command = self.retirar_acesso_cliente)
+        self.tela_bibliotecario.btn_ver_todos_cliente.configure(command = self.ver_todos_cliente)
+        self.tela_bibliotecario.btn_atualizar.configure(command = self.atualizar)
+        self.tela_bibliotecario.btn_cadastro_livro.configure(command = self.cadastro_livro)
+        self.tela_bibliotecario.btn_retirar_livro.configure(command = self.retirar_livro)
         self.tela_bibliotecario.iniciar()
 
 class Controle_tela_cliente():
@@ -47,8 +91,20 @@ class Controle_tela_cliente():
         self.tela_cliente = Tela_cliente()
     def sair(self):
         self.tela_cliente.janela.destroy()
+    def pesquisar_livro(self):
+        # implementar futuramente botao de pesquisar livro
+        pass
+    def ver_livros(self):
+        # implementar futuramente botao que visualiza livro que estao com o cliente(emprestado)
+        pass
+    def renovar_livro(self):
+        # implementar futuramente botao que renova livro do cliente
+        pass
     def start(self):
         '''Inicia a tela do cliente e os eventos dos botoes'''
+        self.tela_cliente.btn_pesquisar.configure(command = self.pesquisar_livro)
+        self.tela_cliente.btn_ver_livros.configure(command = self.ver_livros)
+        self.tela_cliente.btn_renovar.configure(command = self.renovar_livro)
         self.tela_cliente.btn_sair.configure(command = self.sair)
         self.tela_cliente.iniciar()
 
@@ -89,11 +145,13 @@ class Controle_tela_cliente_registrar():
     def __init__(self):
         self.tela_cliente_registrar = Tela_cliente_registrar()
     def confirmar_registro(self):
+        # implementar futuramente botao de efetuar login
         pass
     def sair(self):
         self.tela_cliente_registrar.janela.destroy()
     def start(self):
         self.tela_cliente_registrar.btn_sair.configure(command = self.sair)
+        self.Tela_cliente_registrar.bnt_registrar_cliente.configure(command = self.confirmar_registro)
         self.tela_cliente_registrar.iniciar()
 
 class Controle_tela_cliente_login():
@@ -108,8 +166,12 @@ class Controle_tela_cliente_login():
         Controle_tela_cliente().start()
     def fazer_cadastro(self):
         Controle_tela_cliente_registrar().start()
+    def pesquisar_livro(self):
+        # implementar futuramente botao de pesquisar livro
+        pass
     def start(self):
         '''Inicia a tela de login do cliente e os eventos dos botoes'''
+        self.tela_cliente_login.btn_pesquisar.configure(command = self.pesquisar_livro)
         self.tela_cliente_login.btn_voltar_tela.configure(command = self.voltar_tela)
         self.tela_cliente_login.btn_login.configure(command = self.fazer_login)
         self.tela_cliente_login.btn_cadastro.configure(command = self.fazer_cadastro)
