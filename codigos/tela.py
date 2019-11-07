@@ -57,7 +57,7 @@ class Tela_administrador_login(Tela):
         self.txt_senha = StringVar()
         
         self.ent_login = Entry(self.janela, textvariable=self.txt_login)
-        self.ent_senha = Entry(self.janela, textvariable=self.txt_senha)       
+        self.ent_senha = Entry(self.janela, textvariable=self.txt_senha, show="*")       
         
         self.btn_voltar_tela = Button(self.janela, width = 15, text = "Voltar")
         self.btn_login = Button(self.janela, width = 15, text = "Entrar")
@@ -87,7 +87,7 @@ class Tela_bibliotecario_login(Tela):
         self.txt_senha = StringVar()
 
         self.ent_login = Entry(self.janela, textvariable=self.txt_login)
-        self.ent_senha = Entry(self.janela, textvariable=self.txt_senha)  
+        self.ent_senha = Entry(self.janela, textvariable=self.txt_senha, show="*")  
 
         self.btn_voltar_tela = Button(self.janela, width = 15, text = "Voltar")
         self.btn_login = Button(self.janela, width = 15, text = "Entrar")
@@ -124,7 +124,7 @@ class Tela_cliente_login(Tela):
         self.txt_edicao_livro = StringVar()
 
         self.ent_login = Entry(self.janela, textvariable=self.txt_login)
-        self.ent_senha = Entry(self.janela, textvariable=self.txt_senha)  
+        self.ent_senha = Entry(self.janela, textvariable=self.txt_senha, show="*")  
 
         self.btn_voltar_tela = Button(self.janela, width = 15, text = "Voltar")
         self.btn_login = Button(self.janela, width = 15, text = "Entrar")
