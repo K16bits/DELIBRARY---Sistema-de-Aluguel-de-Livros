@@ -151,7 +151,7 @@ class Controle_tela_cliente_registrar():
         self.tela_cliente_registrar.janela.destroy()
     def start(self):
         self.tela_cliente_registrar.btn_sair.configure(command = self.sair)
-        self.Tela_cliente_registrar.bnt_registrar_cliente.configure(command = self.confirmar_registro)
+        self.tela_cliente_registrar.bnt_registrar_cliente.configure(command = self.confirmar_registro)
         self.tela_cliente_registrar.iniciar()
 
 class Controle_tela_cliente_login():
