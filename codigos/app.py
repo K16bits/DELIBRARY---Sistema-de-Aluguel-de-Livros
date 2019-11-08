@@ -1,8 +1,12 @@
-from tela import Tela,Tela_inicial, Tela_administrador_login, Tela_bibliotecario_login, Tela_cliente_login, Tela_cliente,Tela_administrador,Tela_bibliotecario, Tela_cliente_registrar, Tela_emprestimo_devolucao
-from usuario import Usuario
 from administrador import Administrador
-from cliente import Cliente
 from bibliotecario import Bibliotecario
+from cliente import Cliente
+from tela import (Tela, Tela_administrador, Tela_administrador_login,
+                          Tela_bibliotecario, Tela_bibliotecario_login,
+                          Tela_cliente, Tela_cliente_login,
+                          Tela_cliente_registrar, Tela_emprestimo_devolucao,
+                          Tela_inicial)
+from usuario import Usuario
 
 class Controle_tela_administrador():
     '''Classe para controlar a tela do administrador depois de feito o login'''
@@ -199,5 +203,5 @@ class Controle_tela_inicial():
         self.tela.btn_cliente.configure(command = self.mudar_tela_cliente)
         self.tela.btn_fechar.configure(command = self.finalizar_programa)
         self.tela.iniciar()
-
-Controle_tela_inicial().start()
+if __name__ == "__main__":
+    Controle_tela_inicial().start()
