@@ -1,29 +1,13 @@
 class Usuario():
     '''Class usuario'''
-    def __init__(self, nome = '',cpf= '',email= '',senha= '', **kwargs):
+    def __init__(self, nome = '',sobrenome = '',cpf= '',email= '', login = '', senha= '', **kwargs):
         super().__init__(**kwargs)
         self.nome = nome
+        self.sobrenome = sobrenome
         self.cpf = cpf
-        self.email = email 
+        self.email = email
+        self.login = login
         self.senha = senha
 
-    def display(self):
-        print("Nome: ",self.nome)
-        print("CPF: ",self.cpf)
-        print("EMAIL:",self.email)
-        print("SENHA: ",self.senha)
-    
-    def pesquisar_livro(self):
-        pass
-    
-    def verificar_data_entrega(self):
-        pass
-    
-    @staticmethod
-    def prompt():
-        return dict(nome = input("Nome: "),
-        cpf = int(input("CPF: ")),
-        email = input("Email: "),
-        senha = int(input("Senha: ")))
 
     
