@@ -1,5 +1,5 @@
 class Usuario():
-    '''Class usuario'''
+    '''classe que representa um  usuario'''
     def __init__(self, nome = '',sobrenome = '',cpf= '',email= '', login = '', senha= '', **kwargs):
         super().__init__(**kwargs)
         self.nome = nome

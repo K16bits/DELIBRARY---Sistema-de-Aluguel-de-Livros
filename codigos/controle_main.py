@@ -1,26 +1,31 @@
-from administrador import Administrador
-from bibliotecario import Bibliotecario
-from cliente import Cliente
-from tela import (Tela, Tela_administrador, Tela_administrador_login,
-                          Tela_bibliotecario, Tela_bibliotecario_login,
-                          Tela_cliente, Tela_cliente_login,
-                          Tela_cliente_registrar, Tela_emprestimo_devolucao,
-                          Tela_inicial)
-from usuario import Usuario
+from tela_administrador import Tela_administrador
+from tela_administrador_login import Tela_administrador_login
+from tela_bibliotecario import Tela_bibliotecario
+from tela_bibliotecario_login import Tela_bibliotecario_login
+from tela_cliente import Tela_cliente
+from tela_cliente_login import Tela_cliente_login
+from tela_cliente_registrar import Tela_cliente_registrar
+from tela_emprestimo_devolucao import Tela_emprestimo_devolucao
+from tela_inicial import Tela_inicial
+
 
 class Controle_tela_administrador():
     '''Classe para controlar a tela do administrador depois de feito o login'''
     def __init__(self):
         self.tela_administrador = Tela_administrador()
     def voltar_tela(self):
+        '''metodo para sair da tela'''
         self.tela_administrador.janela.destroy()
     def criar_acesso_bibliotecario(self):
+        '''metodo para criar acesso do bibliotecario no sistema'''
         # implementar futuramente botao de criar acesso bibliotecario
         pass
     def retirar_acesso_bibliotecario(self):
+        '''metodo para retirar acesso do bibliotecario no sistema'''
         # implementar futuramente botao de retirar acesso bibliotecario
         pass
     def ver_todos_bibliotecario(self):
+        '''metodo que visualiza todos o bibliotecario'''
         # implementar futuramente botao de ver todos os bibliotecario
         pass
     def start(self):
@@ -36,11 +41,14 @@ class Controle_tela_emprestimo_devolucao():
     def __init__(self):
         self.tela_emprestimo_devolucao = Tela_emprestimo_devolucao()
     def sair(self):
+        '''metodo para sair da tela'''
         self.tela_emprestimo_devolucao.janela.destroy()
     def emprestimo(self):
+        '''metodo que realiza o emprestimo do livro'''
         # implementar futuramente botao de emprestar livro
         pass
     def devolucao(self):
+        '''metodo que realiza a devoluçao do livro'''
         # implementar futuramente botao de devolvar livro
         pass
     def start(self):
@@ -50,31 +58,38 @@ class Controle_tela_emprestimo_devolucao():
         self.tela_emprestimo_devolucao.btn_devolucao.configure(command=self.devolucao)
         self.tela_emprestimo_devolucao.iniciar()
 
-
 class Controle_tela_bibliotecario():
     '''Classe para controlar a tela do bibliotecario depois de feito o login'''
     def __init__(self):
         self.tela_bibliotecario = Tela_bibliotecario()
     def fechar_janela(self):
+        '''metodo para sair da tela'''
         self.tela_bibliotecario.janela.destroy()
     def emprestimo_devolucao(self):
+        '''metodo para abrir janela de emprestimo e devoluçao de livro'''
         Controle_tela_emprestimo_devolucao().start()
     def criar_acesso_cliente(self):
+        '''metodo para criar acesso do cliente no sistema'''
         # implementar futuramente botao de criar acesso do cliente
         pass
     def retirar_acesso_cliente(self):
+        '''metodo para retirar acesso do cliente no sistema'''
         # implementar futuramente botao de retirar acesso do cliente
         pass
     def ver_todos_cliente(self):
+        '''metodo para vizualizar todos os cliente'''
         # implementar futuramente botao de ver todos os clientes
         pass
     def atualizar(self):
+        '''metodo para atualizar informaçoes do cliente'''
         # implementar futuramente botao de atualizar dados do clientes
         pass
     def cadastro_livro(self):
+        '''metodo para cadastrar livro no sistema'''
         # implementar futuramente botao cadastrar livro
         pass
     def retirar_livro(self):
+        '''metodo para retirar livro no sistema'''
         # implementar futuramente botao de retirar livro
         pass
     def start(self):
@@ -203,5 +218,3 @@ class Controle_tela_inicial():
         self.tela.btn_cliente.configure(command = self.mudar_tela_cliente)
         self.tela.btn_fechar.configure(command = self.finalizar_programa)
         self.tela.iniciar()
-if __name__ == "__main__":
-    Controle_tela_inicial().start()

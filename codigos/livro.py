@@ -1,4 +1,5 @@
 class Livro():
+    '''classe que representa um livro'''
     def __init__(self, id_livro = '', nome = '', genero = '', autor = '',area = '', editora = '', edicao = ''):
         self.id_livro = id_livro 
         self.nome = nome
